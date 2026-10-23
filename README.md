@@ -1,10 +1,10 @@
 # 🚀 VentureVerse 2026: Ideas into Action
 
-A responsive single-page website for **VentureVerse 2026**, a student entrepreneurship event organised by the **Entrepreneurship Development Cell (EDC), JSS University, Noida**.
+A responsive, animated single-page website for **VentureVerse 2026**, a student entrepreneurship event organised by the **Entrepreneurship Development Cell (EDC), JSS University, Noida**.
 
 Built with plain HTML, CSS and JavaScript.
 
-**Live demo:** `file:///C:/Users/Yahvi/Downloads/VentureVerse%202026%20%E2%80%94%20Ideas%20into%20Action.html
+**Live demo:** `https://<your-username>.github.io/venture-verse-2026/`
 
 ---
 
@@ -18,24 +18,34 @@ Built with plain HTML, CSS and JavaScript.
 | **Time** | 10:00 AM to 3:00 PM |
 | **Venue** | University Auditorium, JSS University, Noida *(placeholder)* |
 
-A student-focused event about turning early ideas into ventures, learning from startup journeys, and exploring entrepreneurship on campus.
-
 ---
 
 ## ✨ Features
 
-- **Sticky header** with the EDC logo and section navigation, plus a mobile hamburger menu
-- **Hero section** with event name, tagline, date, time, venue, call-to-action and a live countdown
-- **About and highlights** with three event benefits
-- **Schedule timeline** with six sessions from 10:00 AM to 2:15 PM
-- **Speaker profiles** with initials as avatars (fictional placeholders)
-- **FAQ accordion** built with native `<details>`, no JavaScript needed
-- **RSVP form** collecting name, email, and course and year of study, with:
-  - inline validation and clear error messages
-  - a success confirmation card with an event ticket summary
-- **Footer** with EDC branding and social and contact placeholders
-- **Responsive and accessible:** mobile-first layout, labelled form fields, ARIA attributes and keyboard-friendly controls
-- **Light and dark mode** that follows the system setting
+**Sections**
+- Sticky header with EDC logo, section links and a mobile hamburger menu
+- Hero with event name, rotating tagline, date, time, venue, call-to-action and live countdown
+- About and highlights, stats band, Idea Spark, Pitch Lab, schedule timeline, speaker profiles (fictional), FAQ, RSVP form and footer
+
+**Interactive**
+- **Pitch Lab (unique feature):** build a 60-second pitch from four prompts, watch a live pitch card and strength meter, practise on a 60-second ring timer, and copy the result
+- **Idea Spark:** a dice-roll that combines a campus problem with a "superpower" into a venture idea, and can pre-fill the Pitch Lab
+- **RSVP form:** name, email and course/year, with inline validation and a success confirmation
+- Scroll progress bar with a rocket, active-section highlighting in the nav
+- Clickable schedule rows, 3D tilt on speaker cards, countdown to the event, FAQ accordion
+
+**Animation**
+- Rocket launch intro curtain, letter-by-letter headline, rotating hero word, floating bulbs, parallax dots
+- Animated SVG lightbulb and rocket illustration in the hero
+- Self-drawing "Idea to Launch" journey path with popping stages
+- Scroll-reveal for cards and sections, count-up stats, confetti on RSVP success and "Pitch-ready"
+- Shine on buttons, magnetic buttons and a trailing cursor ring on desktop
+- Respects `prefers-reduced-motion`
+
+**Design**
+- Poster-inspired palette, sticker-style hard shadows, dashed borders and torn-paper edges
+- Light and dark mode that follow the system setting
+- Mobile-first, responsive and keyboard accessible
 
 ---
 
@@ -43,13 +53,11 @@ A student-focused event about turning early ideas into ventures, learning from s
 
 ```
 venture-verse-2026/
-├── index.html          # Page markup
-├── css/
-│   └── style.css       # Styles, theme variables, responsive rules
-├── js/
-│   └── script.js       # Mobile menu, countdown, RSVP validation
-├── assets/
-│   └── edc-logo.png    # EDC JSSUni Noida logo
+├── index.html
+├── css/style.css
+├── js/script.js
+├── assets/edc-logo.png
+├── .gitignore
 └── README.md
 ```
 
@@ -57,7 +65,7 @@ venture-verse-2026/
 
 ## ▶️ Run locally
 
-No installation needed. Either open `index.html` in your browser, or serve the folder:
+Open `index.html` in a browser, or serve the folder:
 
 ```bash
 git clone https://github.com/<your-username>/venture-verse-2026.git
@@ -73,9 +81,8 @@ Then visit `http://localhost:8000`.
 
 1. Push the project to a GitHub repository.
 2. Go to **Settings > Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select branch `main` and folder `/ (root)`, then click **Save**.
-5. Your site will be live at `https://<your-username>.github.io/venture-verse-2026/`.
+3. Choose **Deploy from a branch**, select `main` and `/ (root)`, then click **Save**.
+4. Your site will be live at `https://<your-username>.github.io/venture-verse-2026/`.
 
 ---
 
@@ -84,8 +91,10 @@ Then visit `http://localhost:8000`.
 | What to change | Where |
 |---|---|
 | Event text, schedule, speakers, FAQ | `index.html` |
-| Brand colours and fonts | CSS variables at the top of `css/style.css` |
-| Countdown target date | `js/script.js`, in `new Date('2026-11-12T10:00:00+05:30')` |
+| Colours and fonts | CSS variables at the top of `css/style.css` |
+| Countdown date | `js/script.js`, `new Date('2026-11-12T10:00:00+05:30')` |
+| Idea Spark problems and superpowers | arrays `P` and `S` in `js/script.js` |
+| Stats numbers | `data-n` attributes in the stats band in `index.html` |
 | Social links, email, phone | Footer in `index.html` |
 | Logo | Replace `assets/edc-logo.png` |
 
@@ -93,13 +102,7 @@ Then visit `http://localhost:8000`.
 
 ## 📝 RSVP form
 
-The form currently **validates input and shows a confirmation, but does not store or send data**. To collect real registrations, send the form data from the submit handler in `js/script.js` to one of these:
-
-- [Google Forms](https://www.google.com/forms/about/) or a Google Apps Script web app
-- [Formspree](https://formspree.io/) or a similar form-backend service
-- your own API endpoint
-
-Example using `fetch`:
+The form validates input and shows a confirmation but **does not store or send data**. To collect real registrations, post the form data from the submit handler in `js/script.js` to Google Forms, Formspree or your own endpoint:
 
 ```js
 fetch('https://your-endpoint.example/rsvp', {
@@ -111,25 +114,9 @@ fetch('https://your-endpoint.example/rsvp', {
 
 ---
 
-## 🎨 Design
-
-The visual style follows the official VentureVerse 2026 poster:
-
-| Colour | Hex |
-|---|---|
-| Navy | `#1b2a4a` |
-| Cyan | `#0093c4` |
-| Sky | `#00b4e6` |
-| Orange | `#ff8a3d` |
-| Cream | `#f1ede4` |
-
-Fonts (Google Fonts): **Anton** for headings, **Poppins** for body text, **Kalam** for handwritten accents.
-
----
-
 ## ⚠️ Placeholders
 
-The speaker names, venue, email address, phone number and social links are **fictional placeholders** from a mock event brief. Replace them before using this page for a real event.
+Speaker names, venue, stats, email, phone and social links are **fictional placeholders** from a mock event brief. Replace them before real use.
 
 ---
 
