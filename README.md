@@ -4,7 +4,7 @@ A responsive, animated single-page website for **VentureVerse 2026**, a student 
 
 Built with plain HTML, CSS and JavaScript.
 
-**Live demo:** `https://<your-username>.github.io/venture-verse-2026/`
+**Live demo:** ` https://yahvi0328.github.io/VentureVerse/
 
 ---
 
